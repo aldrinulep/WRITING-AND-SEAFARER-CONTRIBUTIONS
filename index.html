@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aldrin M. Ulep | Writing & Seafarer Contributions Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0f172a;
+            --accent: #0284c7;
+            --accent-hover: #0369a1;
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+            --text-dark: #1e293b;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.05);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--text-dark);
+            line-height: 1.6;
+            padding-bottom: 3rem;
+        }
+
+        header {
+            background-color: var(--primary);
+            color: #ffffff;
+            padding: 4rem 1.5rem 3rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.18;
+            filter: blur(2px);
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 10;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        header h1 {
+            font-size: 2.25rem;
+            font-weight: 700;
+            letter-spacing: -0.025em;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            color: #cbd5e1;
+            font-size: 1.1rem;
+            max-width: 650px;
+            margin: 0 auto;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 2.5rem auto 0;
+            padding: 0 1.5rem;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Optimized Image Container: Prevents Clipping & Distortion */
+        .card-img-wrapper {
+            width: 100%;
+            height: 250px;
+            background-color: #0f172a;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain; /* Full photo visible without cropping */
+            background-color: #0f172a;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover .card-img-wrapper img {
+            transform: scale(1.02);
+        }
+
+        .card-body {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .card-tag {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 0.75rem;
+            line-height: 1.35;
+        }
+
+        .card-desc {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .card-actions {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-top: auto;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.55rem 0.95rem;
+            font-size: 0.825rem;
+            font-weight: 500;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: background-color 0.2s ease, color 0.2s ease;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background-color: var(--accent);
+            color: #ffffff;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-hover);
+        }
+
+        .btn-secondary {
+            background-color: #f1f5f9;
+            color: var(--text-dark);
+            border: 1px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            background-color: #e2e8f0;
+        }
+
+        footer {
+            margin-top: 4rem;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.875rem;
+            padding: 1.5rem;
+            border-top: 1px solid var(--border);
+        }
+
+        @media (max-width: 640px) {
+            header {
+                padding: 3rem 1rem 2rem;
+            }
+            header h1 {
+                font-size: 1.75rem;
+            }
+            .card-img-wrapper {
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="overview.jpg" alt="Portfolio Background Header" class="header-bg">
+        <div class="header-content">
+            <h1>Aldrin M. Ulep</h1>
+            <p>Writing & Seafarer Contributions Portfolio — Maritime Publications & Award-Winning Photography</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="portfolio-grid">
+
+            <!-- Card 1: Maersk Newsletter -->
+            <article class="card">
+                <a href="nlcover.jpg" target="_blank" class="card-img-wrapper" title="View Cover Photo">
+                    <img src="nlcover.jpg" alt="Maersk Newsletter Cover Photo - A Gaze Beyond Horizon">
+                </a>
+                <div class="card-body">
+                    <span class="card-tag">Maersk A/S • December 2022</span>
+                    <h2 class="card-title">Maersk Fleet Management & Technology Newsletter</h2>
+                    <p class="card-desc">
+                        Authored a four-page feature article and supplied the cover photograph, <em>A Gaze Beyond Horizon</em>, which received Highly Commended recognition at ITF Life at Sea 2022.
+                    </p>
+                    <div class="card-actions">
+                        <a href="newsletter.pdf" target="_blank" class="btn btn-primary">Read 4-Page PDF</a>
+                        <a href="nlcover.jpg" target="_blank" class="btn btn-secondary">View Cover Image</a>
+                        <a href="https://www.seafarerstrust.org/life-sea/photo-competition-2022" target="_blank" rel="noopener" class="btn btn-secondary">ITF 2022 Link</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Card 2: ITF Seafarers' Trust Anthology -->
+            <article class="card">
+                <a href="itf2.jpg" target="_blank" class="card-img-wrapper" title="View ITF Anthology Image">
+                    <img src="itf2.jpg" alt="ITF Seafarers' Trust Publication - Out of Sight, Not Out of Mind & Life at Sea 2022">
+                </a>
+                <div class="card-body">
+                    <span class="card-tag">ITF Seafarers' Trust • 2021 & 2022</span>
+                    <h2 class="card-title">Out of Sight, Not Out of Mind & Life at Sea 2022</h2>
+                    <p class="card-desc">
+                        Contributed photography, writing, and poetry about cadet life to ITF Seafarers' Trust anthology collections.
+                    </p>
+                    <div class="card-actions">
+                        <a href="itf2.jpg" target="_blank" class="btn btn-secondary">View Image</a>
+                        <a href="https://www.seafarerstrust.org/life-sea/photo-competition-2021-out-of-sight-not-out-of-mind" target="_blank" rel="noopener" class="btn btn-primary">ITF 2021 Page</a>
+                        <a href="https://www.seafarerstrust.org/life-sea/photo-competition-2022" target="_blank" rel="noopener" class="btn btn-primary">ITF 2022 Page</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Card 3: Danish Photo Competition for Seafarers (SHW) -->
+            <article class="card">
+                <a href="jump.jpg" target="_blank" class="card-img-wrapper" title="View Award Photo">
+                    <img src="jump.jpg" alt="Sea Health & Welfare Photo Competition - The Happiest Jump">
+                </a>
+                <div class="card-body">
+                    <span class="card-tag">Sea Health & Welfare (SHW) • 2021–2023</span>
+                    <h2 class="card-title">Danish Photo Competition for Seafarers</h2>
+                    <p class="card-desc">
+                        Awarded 3rd place for <em>The Happiest Jump</em>. Selected for the 2022 Day of the Seafarer flyer and 2023 calendar cover.
+                    </p>
+                    <div class="card-actions">
+                        <a href="jump.jpg" target="_blank" class="btn btn-secondary">View Image</a>
+                        <a href="https://database.shw.dk/dansk-fotokonkurrence-2021.23804.aspx" target="_blank" rel="noopener" class="btn btn-primary">SHW Official Page</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Card 4: IMarEST Marine Professionals at Work 2023 -->
+            <article class="card">
+                <a href="imarest1.jpg" target="_blank" class="card-img-wrapper" title="View Winning Entry">
+                    <img src="imarest1.jpg" alt="IMarEST Photography Competition Grand Winner - Sunrise Sparks">
+                </a>
+                <div class="card-body">
+                    <span class="card-tag">IMarEST • 2023 Grand Winner</span>
+                    <h2 class="card-title">Marine Professionals at Work Photography Competition</h2>
+                    <p class="card-desc">
+                        Photographer and writer of <em>Sunrise Sparks</em>, the Grand-Winning entry portraying fitter James Jumalon.
+                    </p>
+                    <div class="card-actions">
+                        <a href="imarest1.jpg" target="_blank" class="btn btn-secondary">View Image</a>
+                        <a href="https://www.imarest.org/resource/announcing-the-winner-of-our-marine-professionals-at-work-photography-competition-2023.html" target="_blank" rel="noopener" class="btn btn-primary">IMarEST Winner Page</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Card 5: IMarEST Career Corner Series Feature -->
+            <article class="card">
+                <a href="itf1.jpg" target="_blank" class="card-img-wrapper" title="View Career Corner Feature Image">
+                    <img src="itf1.jpg" alt="IMarEST Career Corner Feature - Maersk Third Officer Advice">
+                </a>
+                <div class="card-body">
+                    <span class="card-tag">IMarEST • Career Corner Series</span>
+                    <h2 class="card-title">Career Corner Series Feature</h2>
+                    <p class="card-desc">
+                        Featured in IMarEST's professional spotlight discussing work as a Maersk Third Officer and advising aspiring navigating officers.
+                    </p>
+                    <div class="card-actions">
+                        <a href="itf1.jpg" target="_blank" class="btn btn-secondary">View Image</a>
+                        <a href="https://www.linkedin.com/posts/the-institute-of-marine-engineering-science-and-technology-imarest_inspirethenextgen-careercorner-imarest-activity-7050075184728272896-vXzc/" target="_blank" rel="noopener" class="btn btn-primary">LinkedIn Post</a>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Aldrin M. Ulep. All rights reserved. | Hosted on GitHub Pages</p>
+    </footer>
+
+</body>
+</html>
